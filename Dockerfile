@@ -8,6 +8,9 @@ RUN pecl install -o -f redis \
 	&& rm -rf /tmp/pear \
 	&& docker-php-ext-enable redis
 
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs
+
 WORKDIR /var/www/html
 COPY src/. .
 

@@ -11,6 +11,10 @@ else
 	echo "env file exists."
 fi
 
+if [ ! -d "node_modules" ]; then
+    npm install
+fi
+
 php artisan migrate
 php artisan key:generate
 php artisan cache:clear
